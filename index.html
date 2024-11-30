@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarker</title>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+
+
+    <link rel="stylesheet" href="./style/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/all.min.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <div class="container">
+    
+
+<div class="containner"><h1 class="title   ">Bookmarker<h1>
+    <hr class="divider">
+</div>
+</div>
+
+            <div class="container  ">
+            
+
+        <p class="main-tile"><i style="color:#67A856;" class="fas fa-bookmark"></i><span style="color:#639257;"> Bookmark your favo</span>rite sites <i class="fas fa-bookmark"></i></p>
+
+        <form id="bookmarkForm">
+            <div class="form-group">
+                <label for="siteName"><i class="fas fa-save"></i> Site Name</label>
+                <input type="text" class="form-control" id="siteName" placeholder="Bookmark Name" required oninput="siteNameValidation()">
+            </div>
+
+            <div id="emptyErr" class="alert alert-primary d-none">Please fill in the site name.</div>
+            <div id="nameErr" class="alert alert-warning d-none">Site name must be at least 3 characters long.</div>
+
+            <div class="form-group">
+                <label for="siteUrl"><i class="fas fa-link"></i> Site URL</label>
+                <input type="text" class="form-control" id="siteUrl" placeholder="Website URL" required oninput="siteUrlValidation()">
+            </div>
+
+            <div id="urlErr" class="alert alert-warning d-none">Please provide a valid URL starting with "http://" or "https://".</div>
+
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-danger" type="submit">Submit</button>
+            </div>
+
+
+           
+        </form>
+
+        <input type="text" id="search" class="form-control mt-3" placeholder="Search bookmarks...">
+
+
+
+        <hr class="divider mt-4">
+
+       
+
+
+
+
+
+
+        
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Website Name</th>
+                    <th>Visit</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="bookmarksList">
+            </tbody>
+        </table>
+
+
+
+
+
+
+    </div>
+
+    <!-- Modal for Alerts -->
+    <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title " id="alertModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body   text-danger fs-3 fw-bold" id="modalMessage"></div>
+                <div class="modal-footer">
+                    <button   style="width: 80px;  background-color:rgb(15, 13, 13); color:white "    type="button" class="btn  text-center" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Update  -->
+    <div class="modal fade   text-danger fs-3 fw-bold" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title  text-danger fs-3 fw-bold" id="updateModalLabel">Update Bookmark</h5>
+                    <button type="button" class="btn-close  " data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="updateName" class="form-label">Site Name:</label>
+                        <input type="text" class="form-control" id="updateName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="updateUrl" class="form-label">Site URL:</label>
+                        <input type="text" class="form-control" id="updateUrl" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" id="updateButton">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html> 
+
+
+
+
+
+
+
+
